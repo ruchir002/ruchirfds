@@ -1,0 +1,76 @@
+include <iostream> using namespace std; #define MAX 50 class Queue 
+{ 
+ 	public: 
+ 	 	int que[MAX], first = -1, last= -1;  	void InsertQueue() 
+ 	{ 
+ 	 	int val; 
+ 	 	if(last == MAX-1) 
+ 	 	{ 
+ 	 	 	cout<<"Queue Overflow!!!"<<endl; 
+ 	 	} 
+ 	 	else 
+ 	 	{ 
+ 	 	 	if(first == -1) 
+ 	 	 	 	first = 0; 
+ 	 	 	 	cout<<"Insert element in Queue : "; 
+ 	 	 	 	cin>>val; 
+ 	last++; 
+ 	 	 	 	que[last] = val; 
+ 	 	} 	 	 
+ 	 	 
+ 	} 
+ 	void DeleteQueue() 
+ 	{ 
+ 	 	if(first == -1 || first>last) 
+ 	 	{ 
+ 	 	 	cout<<"Queue Underflow!!!"<<endl; 
+ 	 	 	return; 
+ 	 	} 
+ 	 	else 
+ 	 	{ 
+   cout<<"Element Deleted from Queue : "<<que[first]<<endl; 
+ 	 	 	first++; 
+ 	 	} 
+ 	} 
+ 	void DisplayQueue() 
+ 	{ 
+ 	 	if(first == -1) 
+ 	 	{ 
+ 	 	 	cout<<"Queue is Empty!!!"<<endl; 
+ 	 	} 
+ 	 	else 
+ 	 	{ 
+ 	 	 	cout<<"Queue Elements :\n"; 
+ 	 	 	for(int i=first; i<=last; i++) 
+ 	 	 	 	cout<<que[i]<<endl; 
+cout<<endl; 
+ 	 	} 
+ 	} 
+}; 
+int main() 
+{ 
+ 	Queue Q; 
+ cout<<"***   Queue   ***\n"<<endl;  cout<<"1. Insert element in Queue."<<endl; 
+    cout<<"2. Delete element from Queue."<<endl;     cout<<"3. Display elements of Queue."<<endl;     cout<<"4. Exit."<<endl; 
+    int ch;     do{ 
+     	cout<<"Enter your Choice : ";      	cin>>ch;      	switch(ch) 
+     	{ 
+     	 	case 1:  
+ 	 	 	 	Q.InsertQueue(); 
+ 	 	 	 	break; 
+ 	 	 	case 2: 
+ 	 	 	 	Q.DeleteQueue(); 
+ 	 	 	 	break; 
+ 	 	 	case 3: 
+ 	 	 	 	Q.DisplayQueue(); 
+ 	 	 	 	break; 
+ 	 	 	case 4: 
+ 	 	 	 	cout<<"Exit."; 
+ 	break; 
+ 	 	 	default: 
+    cout<<"Invalid Choice."<<endl; 
+ 	 	} 
+ 	}while(ch != 4); 
+ 	 
+ 	return 0; 
+} 
